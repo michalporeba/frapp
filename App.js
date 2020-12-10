@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { Button } from 'react-native-elements';
-
+import { Button, Icon } from 'react-native-elements';
 
 export default function App() {
   const [isSomething, setIsSomething] = useState(true);
@@ -27,6 +26,12 @@ export default function App() {
         disabled={!isSomething}/>
       <Button title="Others" />
       <Text>{searchText}</Text>
+      <Button 
+        buttonStyle={{ width: 150 }}
+        containerStyle={{ margin: 5 }}
+        icon={<Icon name="devices" size={50} color="#0F0" />}
+        title="hello"
+      /> 
       <StatusBar style="auto" />
     </View>
   );
