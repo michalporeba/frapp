@@ -14,3 +14,7 @@ At the moment this project is just an excuse for me to learn ReactNative and mob
 * Obs capture and score calculation
 * Order of data capture to match existing forms (like PRF)
 * Simple, clear and intuitive UX
+
+
+## Useful links
+https://www.robinwieruch.de/react-native-navigation

@@ -4,7 +4,7 @@ import { Button, Icon } from 'react-native-elements';
 
 import colors from '../config/colors'
 
-function MainScreen(props) {
+function MainScreen({ props, navigation }) {
     return (
         <>
         <View style={{
@@ -36,19 +36,23 @@ function MainScreen(props) {
           }}
           >
             <View style={styles.buttonView}>
-               <Button buttonStyle={styles.button} title="One" />
+              <Button buttonStyle={styles.button} title="One" 
+                onPress={() => navigation.navigate('DrAbc')}
+              />
             </View>
     
             <View style={styles.buttonView}>
-               <Button buttonStyle={styles.button} title="Two" />
+              <Button buttonStyle={styles.button} title="Two" 
+                onPress={() => navigation.navigate('Tools')}
+              />
             </View>
             
             <View style={styles.buttonView}>
-               <Button buttonStyle={styles.button} title="Three" />
+              <Button buttonStyle={styles.button} title="Three" />
             </View>
     
             <View style={styles.buttonView}>
-               <Button buttonStyle={styles.button} title="Four" />
+              <Button buttonStyle={styles.button} title="Four" />
             </View>
           </View>
         </>
