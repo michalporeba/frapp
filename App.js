@@ -24,7 +24,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen name="Home" component={MainScreen} />
+        <RootStack.Screen name="Home" component={MainScreen} options={{headerShown: false}}/>
         <RootStack.Screen name="DrAbc" component={DrAbcScreen} />
         <RootStack.Screen name="Tools" component={ToolsScreen} />
       </RootStack.Navigator>

@@ -9,7 +9,9 @@ function DrAbcScreen(props) {
         <>
         <View style={{
             backgroundColor: "gold",
-            flex: 1
+            flex: 1,
+            alignContent: "center",
+            alignItems: "center"
           }}>
               <Text>DR ABC</Text>
         </View>

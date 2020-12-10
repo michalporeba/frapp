@@ -8,8 +8,10 @@ function ToolsScreen(props) {
     return (
         <>
         <View style={{
-            backgroundColor: "dodgeblue",
-            flex: 1
+            backgroundColor: "limegreen",
+            flex: 1,
+            alignContent: "center",
+            alignItems: "center"
           }}>
               <Text>Tools</Text>
         </View>

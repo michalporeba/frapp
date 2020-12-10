@@ -18,3 +18,4 @@ At the moment this project is just an excuse for me to learn ReactNative and mob
 
 ## Useful links
 https://www.robinwieruch.de/react-native-navigation
+https://enappd.com/blog/how-to-translate-in-react-native-app-globalization-internationalization-and-text-to-speech/120/
