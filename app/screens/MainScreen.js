@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Alert, Image, Picker, Platform, SafeAreaView, StyleSheet, Text, TextInput, View, I18nManager } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import I18n from 'i18n-js';
-//import * as RNLocalize from 'react-native-localize';
+import { createTheme, createStyle } from 'react-native-theming';
+import Theme from 'react-native-theming';
 
 import colors from '../config/colors';
 import languages from '../config/languages.json';
@@ -20,21 +21,37 @@ function ChangeLanguage(lang) {
   I18n.locale = lang;
 }
 
+const themes = [
+  createTheme({
+    backgroundColor: 'silver',
+    primary: 'dodgerblue'
+  }, 'default'),
+  createTheme({
+    backgroundColor: 'gold',
+    primary: 'limegreen'
+  }, 'stjohn'),
+  createTheme({
+    backgroundColor: 'white',
+    primary: 'blue'
+  }, 'bcrc')
+];
+
 function MainScreen({ navigation }) { 
   const [language, setLanguage] = useState('en');
 
   ChangeLanguage(language);
     return (
-        <>
-        <View style={{
+      <Theme.View style={{
+        flex: 1
+      }}>
+        <Theme.View style={{
             backgroundColor: "gold",
             flex: 0.5
           }}
           />
-          <View style={{
-            backgroundColor: "dodgerblue",
+          <Theme.View style={[styles.main, {
             flex: 3
-          }}
+          }]}
           >
             <Picker
               selectedValue={language}
@@ -48,7 +65,23 @@ function MainScreen({ navigation }) {
 
               ))}
             </Picker>
-          </View>
+              
+            <Picker>
+              { themes.map(theme => (
+                <Picker.Item label={theme.name} style={styles.button} onPress={() => theme.apply()} />
+                ))
+              }
+            </Picker>
+
+            <View style={{ flexDirection: 'row' }}>
+              { themes.map(theme => (
+                <Button key={theme.name} style={styles.button} onPress={() => theme.apply()}>
+                  <Theme.Text style={{ color: '@buttonText' }}>{theme.name}</Theme.Text>
+                </Button>
+                ))
+              }
+            </View>
+          </Theme.View>
     
           <View style={{
             backgroundColor: "gold",
@@ -80,18 +113,22 @@ function MainScreen({ navigation }) {
             </View>
             
             <View style={styles.buttonView}>
-              <Button buttonStyle={styles.button} title={I18n.t('button_three')} />
+              <Button buttonStyle={styles.button} title={I18n.t('button_three')}  
+              onPress={() => {
+                themes[1].apply();
+              }}
+              />
             </View>
     
             <View style={styles.buttonView}>
               <Button buttonStyle={styles.button} title={I18n.t('button_four')} />
             </View>
           </View>
-        </>
+        </Theme.View>
     );
 }
 
-const styles = StyleSheet.create({
+const styles = createStyle({
     buttonView: {
       width: '40%',
       height: '40%',
@@ -99,7 +136,10 @@ const styles = StyleSheet.create({
     button: {
       width: '100%',
       height: '100%',
-      backgroundColor: colors.primary
+      backgroundColor: '@primary'
+    }, 
+    main: {
+      backgroundColor: '@backgroundColor'
     }
   });
 
