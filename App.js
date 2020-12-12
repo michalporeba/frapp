@@ -1,9 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import * as Font from 'expo-font'
-import { Ionicons } from '@expo/vector-icons';
-import { Alert, Image, Platform, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -14,13 +10,6 @@ import ToolsScreen from './app/screens/ToolsScreen';
 const RootStack = createStackNavigator();
 
 export default function App() {
-  const [isSomething, setIsSomething] = useState(true);
-  const [searchText, setSearchText] = useState('');
-
-  console.log("testing messages");
-  let x = 1;
-  console.log("executed");
-
   return (
     <NavigationContainer>
       <RootStack.Navigator>
@@ -31,13 +20,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20
-  }
-});
