@@ -5,7 +5,6 @@ import I18n from 'i18n-js';
 import { createTheme, createStyle } from 'react-native-theming';
 import Theme from 'react-native-theming';
 
-import colors from '../config/colors';
 import languages from '../config/languages.json';
 import cy from '../assets/translations/cy.json';
 import en from '../assets/translations/en.json';
@@ -20,6 +19,8 @@ I18n.translations = {
 function ChangeLanguage(lang) {
   I18n.locale = lang;
 }
+
+const getTheme = (t) => require('../config/' + t + '.colors.json');
 
 const themes = [
   createTheme({
@@ -38,6 +39,10 @@ const themes = [
 
 function MainScreen({ navigation }) { 
   const [language, setLanguage] = useState('en');
+  const [th, setTh] = useState('default');
+
+  const t = getTheme(th);
+  console.log(t);
 
   ChangeLanguage(language);
     return (
@@ -84,7 +89,7 @@ function MainScreen({ navigation }) {
           </Theme.View>
     
           <View style={{
-            backgroundColor: "gold",
+            backgroundColor: t.primary,
             flex: 1
           }}
           />
@@ -115,13 +120,17 @@ function MainScreen({ navigation }) {
             <View style={styles.buttonView}>
               <Button buttonStyle={styles.button} title={I18n.t('button_three')}  
               onPress={() => {
-                themes[1].apply();
+                setTh('bcrc');
               }}
               />
             </View>
     
             <View style={styles.buttonView}>
-              <Button buttonStyle={styles.button} title={I18n.t('button_four')} />
+              <Button buttonStyle={styles.button} title={I18n.t('button_four')} 
+                onPress={() => {
+                  setTh('stjohn');
+                }}
+              />
             </View>
           </View>
         </Theme.View>

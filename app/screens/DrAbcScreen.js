@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, Image, Platform, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 
-import colors from '../config/colors'
+import colors from '../config/default.colors'
 
 function DrAbcScreen(props) {
     return (
