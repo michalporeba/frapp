@@ -39,12 +39,12 @@ const logo = require('../assets/images/smwcrt_logo.png');
 function MainScreen({ navigation }) { 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.topPanel}>
+      <View style={styles.  topPanel}>
         <View style={styles.infoPanel}>
           <View style={styles.miniMenu}>
 
           </View>
-          <Identity style={styles.dutyPanel}/> 
+          <Identity style={styles.dutyPanel} /> 
         </View>
         <View style={styles.orgPanel}>
           <Image source={logo} style={styles.mainLogo} />
