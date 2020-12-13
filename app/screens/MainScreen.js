@@ -3,12 +3,14 @@ import { Image, ImageBackground, Picker, Platform, StyleSheet, Text, TextInput, 
 import { SafeAreaView } from 'react-native-safe-area-context'
 import I18n from 'i18n-js';
 
+import BigActionButton from '../components/BigActionButton';
+import FrontButton from '../components/FrontButton';
+
 import colors from '../config/default.colors';
 import languages from '../config/languages.json';
 import cy from '../assets/translations/cy.json';
 import en from '../assets/translations/en.json';
 import pl from '../assets/translations/pl.json';
-import { Right } from 'native-base';
 
 I18n.translations = { 
   cy: cy, 
@@ -34,16 +36,10 @@ const getTheme = (t) => {
 
 const logo = require('../assets/images/smwcrt_logo.png');
 
-
-
 function MainScreen({ navigation }) { 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topPanel}>
-        <ImageBackground 
-          style={styles.topBackground}
-          soruce={require('../assets/images/caverescue.jpg')} 
-          >
         <View style={styles.infoPanel}>
           <View style={styles.miniMenu}>
 
@@ -61,13 +57,22 @@ function MainScreen({ navigation }) {
         <View style={styles.orgPanel}>
           <Image source={logo} style={styles.mainLogo} />
         </View>
-        </ImageBackground>
       </View>
       <View style={styles.searchPanel}>
         <Text>Search</Text>
       </View>
       <View style={styles.actionsPanel}>
-        <Text>Actions</Text>
+        <View style={styles.actionsColumn}>
+          <BigActionButton 
+            style={{backgroundColor: 'red'}} 
+            label="one"
+          />
+          <BigActionButton label="two" />
+        </View>
+        <View style={styles.actionsColumn}>
+          <BigActionButton label="three" />
+          <BigActionButton label="four" />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -84,11 +89,6 @@ const styles = StyleSheet.create({
     topPanel: {
       ...commonStyle.panel,
       flex: 5
-    },
-    topBackground: {
-      flex: 1, 
-      resizeMode: 'cover', 
-      justifyContent: 'center'
     },
     infoPanel: {
       ...commonStyle.panel, 
@@ -108,7 +108,12 @@ const styles = StyleSheet.create({
     }, 
     actionsPanel: {
       ...commonStyle.panel,
-      flex: 4
+      flex: 4, 
+      flexDirection: 'row',
+      padding: 10
+    },
+    actionsColumn: {
+      flex: 1
     },
     mainLogo: {
       flex: 1,

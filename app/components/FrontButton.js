@@ -1,9 +1,10 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-export default FrontButton = (props) => {
+const FrontButton = (props) => {
     return (
-        <View>
-            <Text>Button</Text>
-        </View>
-    )
+        <View />
+    );
 };
+
+export default FrontButton;
