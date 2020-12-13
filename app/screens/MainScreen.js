@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import I18n from 'i18n-js';
 
 import BigActionButton from '../components/BigActionButton';
-import FrontButton from '../components/FrontButton';
+import Identity from '../components/Identity';
 
 import colors from '../config/default.colors';
 import languages from '../config/languages.json';
@@ -44,15 +44,7 @@ function MainScreen({ navigation }) {
           <View style={styles.miniMenu}>
 
           </View>
-          <View style={styles.dutyPanel}>
-             <View style={styles.dutyInfo}>
-              <Text style={styles.dutyName}>Duty Name</Text>
-              <Text style={styles.positionName}>Position Name</Text>
-             </View>
-             <View style={styles.dutyAction}>
-
-             </View>
-          </View>
+          <Identity style={styles.dutyPanel}/> 
         </View>
         <View style={styles.orgPanel}>
           <Image source={logo} style={styles.mainLogo} />
@@ -130,25 +122,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'green'
     },
     dutyPanel: {
-      flex: 5, 
-      backgroundColor: 'red',
-      flexDirection: 'row'
-    },
-    dutyInfo: {
-      flex: 4,
-      alignItems: 'stretch'
-    },
-    dutyAction: {
-      backgroundColor: 'gold',
-      flex: 1
-    }, 
-    dutyName: {
-      fontSize: 24,
-      textAlign: 'right'
-    }, 
-    positionName: {
-      textAlign: 'right',
-      fontSize: 18
+      flex: 5
     }
   });
 

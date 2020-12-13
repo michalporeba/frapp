@@ -4,9 +4,11 @@ import { TouchableNativeFeedback } from 'react-native';
 
 const BigActionButton = props => {
     return (
-        <TouchableNativeFeedback style={[styles.container, props.style]}>
-            <Text style={styles.button}>{props.label}</Text>
-        </TouchableNativeFeedback>
+        <View style={[styles.container, props.style]}>
+            <TouchableNativeFeedback style={styles.touchable}>
+                <Text style={styles.button}>{props.label}</Text>
+            </TouchableNativeFeedback>
+        </View>
     );
 };
 
@@ -21,6 +23,13 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         margin: 10
     }, 
+    touchable: {
+        flex: 1, 
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'stretch',
+        alignSelf: 'stretch',
+    },
     button: {
         fontSize: 48,
         textAlign: 'center',
