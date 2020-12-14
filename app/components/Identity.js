@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 const Identity = (props) => {
     const navigation = useNavigation();
@@ -14,9 +13,9 @@ const Identity = (props) => {
                 <Text style={styles.positionName}>Position Name</Text>
             </View>
             <View style={styles.dutyAction}>
-                <TouchableNativeFeedback style={{flex: 1}}
+                <TouchableNativeFeedback style={styles.touchable}
                     //onPress={props.onPress}
-                    onPress={() => navigation.navigate('Tools')}
+                    onPress={() => navigation.navigate('CheckIn')}
                 >
                     <Icon 
                         style={styles.locationIcon}
@@ -30,15 +29,18 @@ const Identity = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'red',
         flexDirection: 'row'
     },
     dutyInfo: {
         flex: 4,
         alignItems: 'stretch'
       },
+      touchable: {
+        borderWidth: 0,
+        alignSelf: 'center',
+        alignItems: 'center'
+      },
       dutyAction: {
-        backgroundColor: 'gold',
         alignContent: 'center',
         alignItems: 'center',
         flex: 1
