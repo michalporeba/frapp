@@ -1,4 +1,4 @@
-function useAvailableEvents() {
+const useAvailableEvents = () => {
     return([
         {
             "name": "Help Point",
@@ -20,3 +20,5 @@ function useAvailableEvents() {
         }
     ]);
 }
+
+export default useAvailableEvents;
