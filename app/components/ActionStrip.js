@@ -21,10 +21,12 @@ const styles = StyleSheet.create({
     container: {
         borderWidth: 2,
         width: '100%',
-        marginTop: 5
+        marginTop: 5,
+        flexDirection: 'row'
     }, 
     touchable: {
-        borderWidth: 0
+        borderWidth: 0, 
+        width: '100%'
     },
     label: {
         fontSize: 24,

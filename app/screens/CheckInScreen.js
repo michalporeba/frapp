@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import useAvailableEvents from '../data/EventHooks';
 import ActionStrip from '../components/ActionStrip';
+import ActionStripAction from '../components/ActionStripAction';
 
 function CheckInScreen(props) {
     const events = useAvailableEvents();
@@ -13,8 +14,19 @@ function CheckInScreen(props) {
 
     return(
         <View style={styles.container}>
-
-            <Text style={styles.next}>Select Event</Text>
+            { selected != null ? (
+                    <>
+                        <ActionStrip label={' ⮜ ' + selected.name}
+                            onPress={() => setSelected(null)}
+                        >
+                        </ActionStrip>
+                        <Text style={styles.next}>Select Post</Text>
+                    </>
+                ) : (
+                    <Text style={styles.next}>Select Event</Text>
+                )
+            }
+            
             {
                 selection.map((e, i) => {
                     return (
