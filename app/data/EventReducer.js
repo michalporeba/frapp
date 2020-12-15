@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
 const INITIAL = {
-    "event": "",
+    "name": "",
     "post": ""
 };
 
 const eventReducer = (state = INITIAL, action) => {
     switch (action.type) {
-        case 'SET_EVENT': 
+        case 'SET_EVENT_NAME': 
             return {...state, event: action.payload};
         default: 
             return state;

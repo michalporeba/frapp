@@ -36,10 +36,10 @@ const getTheme = (t) => {
 
 const logo = require('../assets/images/smwcrt_logo.png');
 
-function MainScreen({ navigation }) { 
+function MainScreen(props) { 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.  topPanel}>
+      <View style={styles.topPanel}>
         <View style={styles.infoPanel}>
           <View style={styles.miniMenu}>
 
@@ -125,6 +125,5 @@ const styles = StyleSheet.create({
       flex: 5
     }
   });
-
   
 export default MainScreen;
