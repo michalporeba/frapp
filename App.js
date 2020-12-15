@@ -13,8 +13,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen name="CheckIn" component={CheckInScreen} />
         <RootStack.Screen name="Home" component={MainScreen} options={{headerShown: false}}/>
+        <RootStack.Screen name="Check In" component={CheckInScreen} />
         <RootStack.Screen name="DrAbc" component={DrAbcScreen} />
         <RootStack.Screen name="Tools" component={ToolsScreen} />
       </RootStack.Navigator>

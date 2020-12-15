@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,14 +13,13 @@ const Identity = (props) => {
                 <Text style={styles.positionName}>Position Name</Text>
             </View>
             <View style={styles.dutyAction}>
-                <TouchableNativeFeedback style={styles.touchable}
-                    //onPress={props.onPress}
-                    onPress={() => navigation.navigate('CheckIn')}
+                <TouchableOpacity style={styles.touchable}
+                    onPress={() => navigation.navigate('Check In')}
                 >
                     <Icon 
                         style={styles.locationIcon}
                         name="my-location" size={50} color="#000" />
-                </TouchableNativeFeedback>
+                </TouchableOpacity>
             </View>
         </View>
     );

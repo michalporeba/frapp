@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import {  } from 'react-native';
 
 const BigActionButton = props => {
     return (
         <View style={[styles.container, props.style]}>
-            <TouchableNativeFeedback style={styles.touchable}>
+            <TouchableOpacity style={styles.touchable}>
                 <Text style={styles.button}>{props.label}</Text>
-            </TouchableNativeFeedback>
+            </TouchableOpacity>
         </View>
     );
 };
