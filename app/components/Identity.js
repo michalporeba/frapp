@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
+import { setEventName, setPostName } from '../data/EventActions';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -11,12 +12,16 @@ const Identity = (props) => {
         <View style={[styles.container, props.style]}>
             <View style={styles.dutyInfo}>
                 <Text style={styles.dutyName}>{props.event.name}</Text>
-                <Text style={styles.positionName}>Position Name</Text>
+                <Text style={styles.positionName}>{props.event.post}</Text>
             </View>
             <View style={styles.dutyAction}>
                 <TouchableOpacity style={styles.touchable}
                     //onPress={() => navigation.navigate('Check In')}
-                    onPress={() => props.event.setName('abc')}
+                    onPress={() => {
+                      //props.dispatch({type: 'SET_EVENT_NAME', payload: 'xxx'})
+                      props.setEventName('cba');
+                      props.setPostName("abc");
+                    }}
                 >
                     <Icon 
                         style={styles.locationIcon}
@@ -65,4 +70,11 @@ const stateToProps = (state) => {
   return { event };
 };
 
-export default connect(stateToProps)(Identity);
+const actionCreators = {
+  setEventName,
+  setPostName
+};
+
+console.log(actionCreators);
+
+export default connect(stateToProps, actionCreators)(Identity);
