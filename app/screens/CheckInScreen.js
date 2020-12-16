@@ -3,6 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import useAvailableEvents from '../data/EventHooks';
 import ActionStrip from '../components/ActionStrip';
 import ActionStripAction from '../components/ActionStripAction';
+import { setEventName, setPostName } from '../data/EventActions';
+import { connect } from 'react-redux';
+
+
 
 function CheckInScreen(props) {
     const events = useAvailableEvents();
@@ -32,7 +36,13 @@ function CheckInScreen(props) {
                     return (
                     <ActionStrip label={e.name} 
                         onPress={() => {
-                            setSelected(e);
+                            if (selected == null) {
+                                setSelected(e);
+                            } else {
+                                props.setEventName(selected.name);
+                                props.setPostName(e.name);
+                                props.navigation.navigate('Home');
+                            }
                         }}
                     />
                     );
@@ -53,4 +63,9 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CheckInScreen;
+const actionCreators = {
+    setEventName,
+    setPostName
+  };
+  
+export default connect(null, actionCreators)(CheckInScreen);

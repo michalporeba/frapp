@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
-import { setEventName, setPostName } from '../data/EventActions';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -16,12 +15,7 @@ const Identity = (props) => {
             </View>
             <View style={styles.dutyAction}>
                 <TouchableOpacity style={styles.touchable}
-                    //onPress={() => navigation.navigate('Check In')}
-                    onPress={() => {
-                      //props.dispatch({type: 'SET_EVENT_NAME', payload: 'xxx'})
-                      props.setEventName('cba');
-                      props.setPostName("abc");
-                    }}
+                  onPress={() => navigation.navigate('Check In')}
                 >
                     <Icon 
                         style={styles.locationIcon}
@@ -70,11 +64,4 @@ const stateToProps = (state) => {
   return { event };
 };
 
-const actionCreators = {
-  setEventName,
-  setPostName
-};
-
-console.log(actionCreators);
-
-export default connect(stateToProps, actionCreators)(Identity);
+export default connect(stateToProps)(Identity);
