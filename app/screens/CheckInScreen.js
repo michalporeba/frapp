@@ -2,19 +2,14 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import useAvailableEvents from '../data/EventHooks';
 import ActionStrip from '../components/ActionStrip';
-import ActionStripAction from '../components/ActionStripAction';
 import { setEventName, setPostName } from '../data/EventActions';
 import { connect } from 'react-redux';
-
-
 
 function CheckInScreen(props) {
     const events = useAvailableEvents();
     const [selected, setSelected] = useState(null);
 
     const selection = !selected ? events : selected.posts;
-
-    console.log(selection);
 
     return(
         <View style={styles.container}>

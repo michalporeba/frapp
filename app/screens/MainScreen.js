@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Image, ImageBackground, Picker, Platform, StyleSheet, Text, TextInput, View, I18nManager } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import I18n from 'i18n-js';
 

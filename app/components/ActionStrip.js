@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 const ActionStrip = props => {
