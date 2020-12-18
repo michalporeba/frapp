@@ -44,7 +44,8 @@ const useChecklist = (id) => {
             name: 'HK 105',
             items: [
                 { ref: 2 }, 
-                { }
+                { ref: 12 },
+                { ref: 13 }
             ]
         };
         case 11: return {

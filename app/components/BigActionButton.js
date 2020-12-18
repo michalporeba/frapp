@@ -5,7 +5,8 @@ import {  } from 'react-native';
 const BigActionButton = props => {
     return (
         <View style={[styles.container, props.style]}>
-            <TouchableOpacity style={styles.touchable}>
+            <TouchableOpacity style={styles.touchable}
+                onPress={() => {if (typeof props.onPress === 'function') props.onPress(); }}>
                 <Text style={styles.button}>{props.label}</Text>
             </TouchableOpacity>
         </View>

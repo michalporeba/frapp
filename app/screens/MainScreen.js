@@ -11,6 +11,7 @@ import languages from '../config/languages.json';
 import cy from '../assets/translations/cy.json';
 import en from '../assets/translations/en.json';
 import pl from '../assets/translations/pl.json';
+import { Navigation } from 'react-native-navigation';
 
 I18n.translations = { 
   cy: cy, 
@@ -63,7 +64,9 @@ function MainScreen(props) {
         </View>
         <View style={styles.actionsColumn}>
           <BigActionButton label="three" />
-          <BigActionButton label="four" />
+          <BigActionButton label="four" 
+            onPress={() => {props.navigation.navigate('Checklists')}}
+          />
         </View>
       </View>
     </SafeAreaView>
