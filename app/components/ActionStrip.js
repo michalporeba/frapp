@@ -3,11 +3,13 @@ import { StyleSheet, View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 const ActionStrip = props => {
+    const { onPress } = props;
+
     return (
         <View style={styles.container}>
             <TouchableOpacity 
                 style={styles.touchable}
-                onPress={() => props.onPress()}>
+                onPress={() => {if (onPress !== null && typeof onPress === 'function') onPress()}}>
                 <View>
                     <Text style={styles.label}>{props.label}</Text>
                 </View>

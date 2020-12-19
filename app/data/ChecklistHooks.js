@@ -80,7 +80,7 @@ const useChecklist = (id) => {
     }
 };
 
-export default {
+export {
     useAvailableChecklists,
     useChecklist
 };
