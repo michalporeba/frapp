@@ -17,6 +17,37 @@ const SelectChecklists = (props) => {
     );
 }
 
+const Checklist = (props) => {
+    const { checklist } = props;
+    const { items } = checklist;
+
+    if (checklist == null) {
+        return (
+            <Text>Nothing to see here</Text>
+        )
+    }
+
+    if (!items) {
+        return (
+            <>
+            </>
+        )
+    }
+
+    return (
+        items.map((e, i) => {
+            console.log(e);
+            return (
+                <>
+                    <ActionStrip label={e.name} />
+                    <Checklist checklist={e} />
+                </>
+            );
+        })
+    );
+
+}
+
 const ChecklistScreen = (props) => {
     const [checklist, setChecklist] = useState(null);
 
@@ -33,17 +64,10 @@ const ChecklistScreen = (props) => {
                         <ActionStrip label={' ⮜ ' + checklist.name} 
                             onPress={() => setChecklist(null)}
                         />
+                        <Text style={styles.header}>Things to check</Text>
+                        <Checklist checklist={checklist} />
                     </>
                 )
-            }
-            {
-                // availableChecklists.map((e, i) => {
-                //     return (
-                //         <ActionStrip label={e.name} 
-                //             onPress={() => setChecklist(useChecklist(e.id))}
-                //         />
-                //     )
-                // })
             }
         </View>
     );
