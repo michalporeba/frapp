@@ -4,6 +4,8 @@ import useAvailableEvents from '../data/EventHooks';
 import ActionStrip from '../components/ActionStrip';
 import { setEventName, setPostName } from '../data/EventActions';
 import { connect } from 'react-redux';
+import { ListItem, Icon } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function CheckInScreen(props) {
     const events = useAvailableEvents();
@@ -15,34 +17,51 @@ function CheckInScreen(props) {
         <View style={styles.container}>
             { selected != null ? (
                     <>
-                        <ActionStrip label={' ⮜ ' + selected.name}
+                        <ListItem key={selected.name}
                             onPress={() => setSelected(null)}
                         >
-                        </ActionStrip>
+                            <ListItem.Content>
+                                <ListItem.Title>{selected.name}</ListItem.Title>
+                            </ListItem.Content>
+                            <Icon name='cancel' />
+                        </ListItem>
                         <Text style={styles.next}>Select Post</Text>
                     </>
                 ) : (
                     <Text style={styles.next}>Select Event</Text>
                 )
             }
-            
-            {
-                selection.map((e, i) => {
-                    return (
-                    <ActionStrip label={e.name} 
-                        onPress={() => {
-                            if (selected == null) {
-                                setSelected(e);
-                            } else {
-                                props.setEventName(selected.name);
-                                props.setPostName(e.name);
-                                props.navigation.navigate('Home');
+            <ScrollView>
+            <View style={{ padding: 15, paddingTop: 0 }}>
+                {
+                    selection.map((e, i) => (
+                        <View style={{marginBottom: 10}}>
+                        <ListItem key={i} bottomDivider
+                            onPress={() => {
+                                if (selected == null) {
+                                    setSelected(e);
+                                } else {
+                                    props.setEventName(selected.name);
+                                    props.setPostName(e.name);
+                                    props.navigation.navigate('Home');
+                                }
+                            }}
+                        >
+                            <ListItem.Content>
+                                <ListItem.Title>{e.name}</ListItem.Title>
+                            </ListItem.Content>
+                            {selected 
+                                ? <Icon name='check' /> 
+                                : <ListItem.Chevron /> 
                             }
-                        }}
-                    />
-                    );
-                })
-            }
+                            
+                            
+                        </ListItem>
+                        </View>
+                    ))
+                }
+            </View>
+            </ScrollView>
         </View>
     );
 }
